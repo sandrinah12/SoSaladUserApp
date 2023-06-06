@@ -1,0 +1,97 @@
+{
+  "project_info": {
+    "project_number": "758202895406",
+    "project_id": "digeatal-c4834",
+    "storage_bucket": "digeatal-c4834.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:758202895406:android:a2e6dab5fbfc371b4ca3bf",
+        "android_client_info": {
+          "package_name": "com.nogae.sosalad_delivry"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "758202895406-jcn54r5udkahbbpg2td9t7eqhll9koqv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD4SwsGWaf8oUCtEZBh-_JqKaT9iVgYZMg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "758202895406-jcn54r5udkahbbpg2td9t7eqhll9koqv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:758202895406:android:74f3ef2a70f1c8b74ca3bf",
+        "android_client_info": {
+          "package_name": "com.nogaedev.sosalad_restaurant"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "758202895406-jcn54r5udkahbbpg2td9t7eqhll9koqv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD4SwsGWaf8oUCtEZBh-_JqKaT9iVgYZMg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "758202895406-jcn54r5udkahbbpg2td9t7eqhll9koqv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:758202895406:android:1e7e87b3e655f9ed4ca3bf",
+        "android_client_info": {
+          "package_name": "com.nogaedev.digeatallfood"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "758202895406-jcn54r5udkahbbpg2td9t7eqhll9koqv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD4SwsGWaf8oUCtEZBh-_JqKaT9iVgYZMg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "758202895406-jcn54r5udkahbbpg2td9t7eqhll9koqv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
