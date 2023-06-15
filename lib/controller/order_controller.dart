@@ -425,18 +425,10 @@ class OrderController extends GetxController implements GetxService {
 
   void clearPrevData() {
     _addressIndex = 0;
-    _paymentMethodIndex = Get.find<SplashController>().configModel.cashOnDelivery ? 0
-        : Get.find<SplashController>().configModel.digitalPayment ? 1
-        : Get.find<SplashController>().configModel.customerWalletStatus == 1 ? 2 : /*0   Modified by Sandrinah*/
-          Get.find<SplashController>().configModel.paytabs ? 3 :
-          Get.find<SplashController>().configModel.bkash ? 4 :
-          Get.find<SplashController>().configModel.paytm ? 5 :
-          Get.find<SplashController>().configModel.liqpay ? 6 :
-          Get.find<SplashController>().configModel.mercadopago ? 7 :
-          Get.find<SplashController>().configModel.flutterwave ? 8 :
-          Get.find<SplashController>().configModel.paystack ? 9 :
-          Get.find<SplashController>().configModel.stripe ? 10 :
-          Get.find<SplashController>().configModel.paypal ? 11 : 0;
+    _paymentMethodIndex = Get.find<SplashController>().configModel.cashOnDelivery ? 0 : /*0   Modified by Sandrinah*/
+          Get.find<SplashController>().configModel.stripe ? 1 :
+          Get.find<SplashController>().configModel.paypal ? 2 :
+          Get.find<SplashController>().configModel.cinetpay ;
     _selectedDateSlot = 0;
     _selectedTimeSlot = 0;
     _distance = null;

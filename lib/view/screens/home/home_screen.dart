@@ -46,6 +46,7 @@ class HomeScreen extends StatefulWidget {
     }
     //Modified by Sandrinah
     Get.find<ProductController>().getAllProduct();
+    Get.find<RestaurantController>().getLatestRestaurant();
 
     if(Get.find<SplashController>().configModel.newRestaurant == 1) {
       Get.find<RestaurantController>().getLatestRestaurantList(reload, 'all', false);
@@ -94,6 +95,7 @@ class _HomeScreenState extends State<HomeScreen> {
             await Get.find<CampaignController>().getItemCampaignList(true);
             await Get.find<ProductController>().getPopularProductList(true, 'all', false);
             await Get.find<ProductController>().getAllProduct();
+            await Get.find<RestaurantController>().getLatestRestaurant();
             await Get.find<RestaurantController>().getLatestRestaurantList(true, 'all', false);
             await Get.find<ProductController>().getReviewedProductList(true, 'all', false);
             await Get.find<RestaurantController>().getRestaurantList(1, true);

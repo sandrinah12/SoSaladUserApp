@@ -341,7 +341,15 @@ class RouteHelper {
       return getRoute(CategoryProductScreen(categoryID: Get.parameters['id'], categoryName: _data));
     }),
     //Modified by Sandrinah
-    GetPage(name: allSalad, page: () => getRoute(AllSaladScreen())),
+    GetPage(name: allSalad, page: () {
+     /* var id;
+      if(Get.parameters['id'] != null && int.tryParse(Get.parameters['id']) != null){
+        id = int.parse(Get.parameters['id']);
+      }
+      return getRoute(Get.arguments != null ? Get.arguments : AllSaladScreen(restaurant: Restaurant(id: id)));*/
+      return getRoute(AllSaladScreen());
+      //return getRoute(Get.arguments != null ? Get.arguments : RestaurantScreen(restaurant: Restaurant(id: int.parse(Get.parameters['id']))));
+    }),
     GetPage(name: popularFoods, page: () => getRoute(PopularFoodScreen(isPopular: Get.parameters['page'] == 'popular'))),
     GetPage(name: itemCampaign, page: () => getRoute(ItemCampaignScreen())),
     GetPage(name: support, page: () => getRoute(SupportScreen())),

@@ -63,6 +63,9 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
   double _taxPercent = 0;
   bool _isCashOnDeliveryActive;
   bool _isDigitalPaymentActive;
+  bool _isPaypalActive;
+  bool _isStripeActive;
+  bool _isCinetPay;
   bool _isWalletActive;
   bool _isLoggedIn;
   List<CartModel> _cartList;
@@ -94,6 +97,9 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
       _noteController.text = widget.delivery_note;
       _isCashOnDeliveryActive = Get.find<SplashController>().configModel.cashOnDelivery;
       _isDigitalPaymentActive = Get.find<SplashController>().configModel.digitalPayment;
+      _isPaypalActive = Get.find<SplashController>().configModel.paypal;
+      _isStripeActive = Get.find<SplashController>().configModel.stripe;
+      _isCinetPay = Get.find<SplashController>().configModel.cinetpay;
       _isWalletActive = Get.find<SplashController>().configModel.customerWalletStatus == 1;
       _cartList = [];
       widget.fromCart ? _cartList.addAll(Get.find<CartController>().cartList) : _cartList.addAll(widget.cartList);
@@ -221,15 +227,12 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
 
               return (orderController.distance != null && locationController.addressList != null) ? Column(
                 children: [
-
                   Expanded(child: Scrollbar(child: SingleChildScrollView(
                     physics: BouncingScrollPhysics(),
                     // padding: EdgeInsets.all(Dimensions.PADDING_SIZE_SMALL),
                     child: Center(child: SizedBox(
                       width: Dimensions.WEB_MAX_WIDTH,
                       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-
-
                         Container(
                           width: context.width,
                           color: Theme.of(context).cardColor,
@@ -679,7 +682,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                   subtitle: 'faster_and_safe_way'.tr,
                                   index: 1,
                                 ) : SizedBox(),*/
-                                PaymentButton(
+                                _isCinetPay ? PaymentButton(
                                   icon: Images.digital_payment,
                                   title: 'Mobile money',
                                   subtitle: 'faster_and_safe_way'.tr,
@@ -688,8 +691,8 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                     method_payment_id = 'cinetpay';
                                     print(method_payment_id);
                                   },
-                                ),
-                                PaymentButton(
+                                ) : SizedBox(),
+                                _isPaypalActive ? PaymentButton(
                                   icon: Images.paypal,
                                   title: 'Paypal',
                                   subtitle: 'faster_and_safe_way'.tr,
@@ -698,17 +701,16 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                     method_payment_id = 'paypal';
                                     print(method_payment_id);
                                   },
-                                ),
-                                /*PaymentButton(
+                                ) : SizedBox(),
+                                _isStripeActive ? PaymentButton(
                                   icon: Images.stripe,
                                   title: 'Stripe',
                                   subtitle: 'faster_and_safe_way'.tr,
                                   index: 30,
                                   action: () {
                                     method_payment_id = 'stripe';
-                                    print(method_payment_id);
                                   },
-                                ),*/
+                                ) : SizedBox(),
                                 _isWalletActive ? PaymentButton(
                                   icon: Images.wallet,
                                   title: 'wallet_payment'.tr,
@@ -915,8 +917,8 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                               && orderController.selectedTimeSlot == 0) ? null : DateConverter.dateToDateAndTime(_scheduleStartDate),
                           orderAmount: _total, orderNote: _noteController.text, orderType: orderController.orderType,
                           paymentMethod: orderController.paymentMethodIndex == 0 ? 'cash_on_delivery'
-                              : orderController.paymentMethodIndex == 1 ? 'digital_payment' : orderController.paymentMethodIndex == 2
-                              ? 'wallet' : 'digital_payment',
+                               : orderController.paymentMethodIndex == 1 ? 'stripe' : orderController.paymentMethodIndex == 2
+                          ? 'paypal' : 'cinetpay',
                           couponCode: (Get.find<CouponController>().discount > 0 || (Get.find<CouponController>().coupon != null
                               && Get.find<CouponController>().freeDelivery)) ? Get.find<CouponController>().coupon.code : null,
                           restaurantId: _cartList[0].product.restaurantId,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sosalad/controller/product_controller.dart';
+import 'package:sosalad/controller/restaurant_controller.dart';
 import 'package:sosalad/controller/splash_controller.dart';
 import 'package:sosalad/controller/theme_controller.dart';
 import 'package:sosalad/data/model/response/product_model.dart';
@@ -13,36 +14,50 @@ import 'package:sosalad/view/base/custom_image.dart';
 import 'package:sosalad/view/base/product_bottom_sheet.dart';
 import 'package:sosalad/view/base/title_widget.dart';
 
-class MenuView1 extends StatelessWidget {
+import '../../../../data/model/response/restaurant_model.dart';
+import '../../restaurant/restaurant_screen.dart';
 
+class MenuView1 extends StatelessWidget {
+  // final res =  Get.find<RestaurantController>().getRestaurantListKiady(1, true);
+  // final controller = Get.put(RestaurantController());
   @override
   Widget build(BuildContext context) {
     return GetBuilder<ProductController>(builder: (productController) {
       List<Product> _productList = productController.allProduct;
 
-      //print(productController.allProduct);
+      print(_productList);
 
       return (_productList != null && _productList.length == 0) ? SizedBox() : Column(
         children: [
-          Padding(
-            padding: EdgeInsets.fromLTRB(10, 15, 10, 10),
-            child: TitleWidget(
-              title: 'All food',
-              onTap: () => Get.toNamed(RouteHelper.getAllSalad()),
-            ),
-          ),
+          GetBuilder<RestaurantController>(
+              builder: (resController) {
+                List<Restaurant> res = resController.latestRestaurantList;
+                return Padding(
+                  padding: EdgeInsets.fromLTRB(10, 15, 10, 10),
+                  child: TitleWidget(
+                    title: 'All food',
+                    // onTap: () => Get.toNamed(RouteHelper.getAllSalad()),
+                    onTap: () {
+                      Get.toNamed(
+                        RouteHelper.getRestaurantRoute(res[0].id),
+                        arguments: RestaurantScreen(restaurant: res[0]),
+                      );
+                    },
+                  ),
+                );
+              }),
 
           _productList != null ? GridView.builder(
             physics: NeverScrollableScrollPhysics(),
             shrinkWrap: true,
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: ResponsiveHelper.isDesktop(context) ? 6 : ResponsiveHelper.isTab(context) ? 4 : 3,
-              childAspectRatio: (1/1.2),
+              crossAxisCount: ResponsiveHelper.isDesktop(context) ? 6 : ResponsiveHelper.isTab(context) ? 4 : 2,
+              childAspectRatio: (1/1.1),
               mainAxisSpacing: Dimensions.PADDING_SIZE_SMALL,
               crossAxisSpacing: Dimensions.PADDING_SIZE_SMALL,
             ),
             padding: EdgeInsets.all(Dimensions.PADDING_SIZE_SMALL),
-            itemCount: _productList.length > 5 ? 6 : _productList.length,
+            itemCount: _productList.length > 4 ? 6 : _productList.length,
             itemBuilder: (context, index){
 
               return InkWell(

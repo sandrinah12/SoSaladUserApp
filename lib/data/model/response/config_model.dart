@@ -9,19 +9,9 @@ class ConfigModel {
   bool cashOnDelivery;
   bool digitalPayment;
   /*Modified by Sandrinah*/
-  bool sslCommerzPayment;
-  bool razorPay;
   bool paypal;
   bool stripe;
-  bool senangPay;
-  bool paystack;
-  bool flutterwave;
-  bool mercadopago;
-  bool paymodAccept;
-  bool liqpay;
-  bool paytm;
-  bool bkash;
-  bool paytabs;
+  bool cinetpay;
   /*end*/
   String termsAndConditions;
   String privacyPolicy;
@@ -86,19 +76,9 @@ class ConfigModel {
         this.currencySymbol,
         this.cashOnDelivery,
         this.digitalPayment,
-        this.sslCommerzPayment,
-        this.razorPay,
         this.paypal,
         this.stripe,
-        this.senangPay,
-        this.paystack,
-        this.flutterwave,
-        this.mercadopago,
-        this.paymodAccept,
-        this.liqpay,
-        this.paytm,
-        this.bkash,
-        this.paytabs,
+        this.cinetpay,
         this.termsAndConditions,
         this.privacyPolicy,
         this.aboutUs,
@@ -163,19 +143,9 @@ class ConfigModel {
     cashOnDelivery = json['cash_on_delivery'];
     digitalPayment = json['digital_payment'];
     /*Modified by Sandrinah*/
-    sslCommerzPayment = json['ssl_commerz_payment'];
-    razorPay = json['razor_pay'];
     paypal = json['paypal'];
     stripe = json['stripe'];
-    senangPay = json['senang_pay'];
-    paystack = json['paystack'];
-    flutterwave = json['flutterwave'];
-    mercadopago = json['mercadopago'];
-    paymodAccept = json['paymod_accept'];
-    liqpay = json['liqpay'];
-    paytm = json['paytm'];
-    bkash = json['bkash'];
-    paytabs = json['paytabs'];
+    cinetpay = json['cinetpay'];
     /*end*/
     termsAndConditions = json['terms_and_conditions'];
     privacyPolicy = json['privacy_policy'];
@@ -249,19 +219,9 @@ class ConfigModel {
     data['cash_on_delivery'] = this.cashOnDelivery;
     data['digital_payment'] = this.digitalPayment;
     /*Modified by Sandrinah*/
-    data['ssl_commerz_payment'] = this.sslCommerzPayment;
-    data['razor_pay'] = this.razorPay;
     data['paypal'] = this.paypal;
     data['stripe'] = this.stripe;
-    data['senang_pay'] = this.senangPay;
-    data['paystack'] = this.paystack;
-    data['flutterwave'] = this.flutterwave;
-    data['mercadopago'] = this.mercadopago;
-    data['paymod_accept'] = this.paymodAccept;
-    data['liqpay'] = this.liqpay;
-    data['paytm'] = this.paytm;
-    data['bkash'] = this.bkash;
-    data['paytabs'] = this.paytabs;
+    data['cinetpay'] = this.cinetpay;
     /*end*/
     data['terms_and_conditions'] = this.termsAndConditions;
     data['privacy_policy'] = this.privacyPolicy;

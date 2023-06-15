@@ -49,6 +49,7 @@ class ProductController extends GetxController implements GetxService {
   Future<void> getAllProduct()async{
     //_productType = type;
     Response response = await productRepo.getAllProduct();
+    //print(response);
     if(response.statusCode == 200){
       //print('bien');
       _allPropduct = [];

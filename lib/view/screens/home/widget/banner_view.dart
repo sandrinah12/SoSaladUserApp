@@ -55,6 +55,7 @@ class BannerView extends StatelessWidget {
                       }else if(bannerController.bannerDataList[index] is Restaurant) {
                         Restaurant _restaurant = bannerController.bannerDataList[index];
                         Get.toNamed(
+
                           RouteHelper.getRestaurantRoute(_restaurant.id),
                           arguments: RestaurantScreen(restaurant: _restaurant),
                         );

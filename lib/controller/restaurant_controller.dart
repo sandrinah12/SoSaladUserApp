@@ -96,6 +96,26 @@ class RestaurantController extends GetxController implements GetxService {
       ApiChecker.checkApi(response);
     }
   }
+  Future<RestaurantModel> getRestaurantListKiady(int offset, bool reload) async {
+    if(reload) {
+      _restaurantModel = null;
+      update();
+    }
+    Response response = await restaurantRepo.getRestaurantList(offset, _restaurantType);
+    if (response.statusCode == 200) {
+      if (offset == 1) {
+        _restaurantModel = RestaurantModel.fromJson(response.body);
+      }else {
+        _restaurantModel.totalSize = RestaurantModel.fromJson(response.body).totalSize;
+        _restaurantModel.offset = RestaurantModel.fromJson(response.body).offset;
+        _restaurantModel.restaurants.addAll(RestaurantModel.fromJson(response.body).restaurants);
+      }
+      update();
+    } else {
+      ApiChecker.checkApi(response);
+    }
+    return _restaurantModel;
+  }
 
   void setRestaurantType(String type) {
     _restaurantType = type;
@@ -123,7 +143,7 @@ class RestaurantController extends GetxController implements GetxService {
   }
 
   Future<void> getLatestRestaurantList(bool reload, String type, bool notify) async {
-    _type = type;
+    /*_type = type;
     if(reload){
       _latestRestaurantList = null;
     }
@@ -132,13 +152,28 @@ class RestaurantController extends GetxController implements GetxService {
     }
     if(_latestRestaurantList == null || reload) {
       Response response = await restaurantRepo.getLatestRestaurantList(type);
+      print('object');
+      print(response);
       if (response.statusCode == 200) {
+        print('bravo');
         _latestRestaurantList = [];
         response.body.forEach((restaurant) => _latestRestaurantList.add(Restaurant.fromJson(restaurant)));
       } else {
         ApiChecker.checkApi(response);
       }
       update();
+    }*/
+  }
+
+  Future<void> getLatestRestaurant() async{
+    //print('latest');
+    Response response = await restaurantRepo.getLatestRestaurantList();
+    //print('a $response');
+    if(response.statusCode == 200){
+      //print('morning');
+      _latestRestaurantList = [];
+      _latestRestaurantList.addAll(RestaurantModel.fromJson(response.body).restaurants);
+      //print('b $_latestRestaurantList');
     }
   }
 

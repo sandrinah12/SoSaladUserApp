@@ -1,5 +1,6 @@
 import 'package:sosalad/controller/splash_controller.dart';
 import 'package:sosalad/data/model/response/config_model.dart';
+import 'package:sosalad/data/model/response/restaurant_model.dart';
 import 'package:sosalad/view/screens/home/widget/cuisine_view.dart';
 import 'package:sosalad/view/screens/home/widget/filter_view.dart';
 import 'package:sosalad/view/screens/home/widget/near_by_button_view.dart';
@@ -22,6 +23,8 @@ import 'package:sosalad/view/screens/home/theme1/item_campaign_view1.dart';
 import 'package:sosalad/view/screens/home/theme1/popular_item_view1.dart';
 import 'package:sosalad/view/screens/home/theme1/popular_store_view1.dart';
 
+import '../../../../util/images.dart';
+import '../../../base/custom_image.dart';
 import 'menu_view1.dart';
 
 class Theme1HomeScreen extends StatelessWidget {

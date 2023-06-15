@@ -15,8 +15,11 @@ class RestaurantRepo {
     return await apiClient.getData('${AppConstants.POPULAR_RESTAURANT_URI}?type=$type');
   }
 
-  Future<Response> getLatestRestaurantList(String type) async {
-    return await apiClient.getData('${AppConstants.LATEST_RESTAURANT_URI}?type=$type');
+  Future<Response> getLatestRestaurantList() async {
+    var a = await apiClient.getData('${AppConstants.LATEST_RESTAURANT_URI}');
+    print('andrana');
+    print(a);
+    return a;
   }
 
   Future<Response> getRestaurantDetails(String restaurantID) async {

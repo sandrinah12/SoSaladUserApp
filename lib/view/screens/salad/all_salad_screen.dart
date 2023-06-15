@@ -2,23 +2,31 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sosalad/view/screens/home/theme1/menu_view1.dart';
 
+import '../../../controller/category_controller.dart';
+import '../../../controller/localization_controller.dart';
 import '../../../controller/product_controller.dart';
+import '../../../controller/restaurant_controller.dart';
 import '../../../controller/splash_controller.dart';
 import '../../../controller/theme_controller.dart';
 import '../../../data/model/response/product_model.dart';
+import '../../../data/model/response/restaurant_model.dart';
+import '../../../helper/date_converter.dart';
 import '../../../helper/price_converter.dart';
 import '../../../helper/responsive_helper.dart';
 import '../../../util/dimensions.dart';
+import '../../../util/images.dart';
 import '../../../util/styles.dart';
 import '../../base/custom_app_bar.dart';
 import '../../base/custom_image.dart';
 import '../../base/no_data_screen.dart';
 import '../../base/product_bottom_sheet.dart';
+import '../../base/product_view.dart';
 
 class AllSaladScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: CustomAppBar(title: 'All menu salad'.tr),
       body: SafeArea(child: Scrollbar(child: SingleChildScrollView(child: Center(child: SizedBox(
@@ -129,5 +137,28 @@ class AllSaladScreen extends StatelessWidget {
         }),
       ))))),
     );
+
+  }
+}
+
+class SliverDelegate extends SliverPersistentHeaderDelegate {
+  Widget child;
+
+  SliverDelegate({@required this.child});
+
+  @override
+  Widget build(BuildContext context, double shrinkOffset, bool overlapsContent) {
+    return child;
+  }
+
+  @override
+  double get maxExtent => 50;
+
+  @override
+  double get minExtent => 50;
+
+  @override
+  bool shouldRebuild(SliverDelegate oldDelegate) {
+    return oldDelegate.maxExtent != 50 || oldDelegate.minExtent != 50 || child != oldDelegate.child;
   }
 }

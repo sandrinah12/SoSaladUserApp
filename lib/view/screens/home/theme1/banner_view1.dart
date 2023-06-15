@@ -14,6 +14,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shimmer_animation/shimmer_animation.dart';
 
+import '../../../../controller/restaurant_controller.dart';
+import '../../../../util/images.dart';
+
 class BannerView1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -22,7 +25,7 @@ class BannerView1 extends StatelessWidget {
       List<String> bannerList = bannerController.bannerImageList;
       List<dynamic> bannerDataList = bannerController.bannerDataList;
 
-      return (bannerList != null && bannerList.length == 0) ? SizedBox() : Container(
+      return (bannerList != null && bannerList.length != 0) ?  Container(
         width: MediaQuery.of(context).size.width,
         height: GetPlatform.isDesktop ? 500 : MediaQuery.of(context).size.width * 0.45,
         padding: EdgeInsets.only(top: Dimensions.PADDING_SIZE_DEFAULT),
@@ -110,6 +113,17 @@ class BannerView1 extends StatelessWidget {
             color: Colors.grey[300],
           )),
         ),
+      ) : GetBuilder<RestaurantController>(
+          builder: (_restaurant){
+            List<Restaurant> restau = _restaurant.latestRestaurantList;
+            return ClipRRect(
+              borderRadius: BorderRadius.circular(Dimensions.RADIUS_SMALL),
+              child: CustomImage(
+                fit: BoxFit.cover, placeholder: Images.restaurant_cover, height: 220,
+                image: '${Get.find<SplashController>().configModel.baseUrls.restaurantCoverPhotoUrl}/${restau[0].coverPhoto}',
+              ),
+            );
+          }
       );
     });
   }
