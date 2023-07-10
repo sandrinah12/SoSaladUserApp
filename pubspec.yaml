@@ -1,7 +1,7 @@
 name: sosalad
-description: A new Flutter application.
+description: Application So Salad.
 publish_to: 'none' #
-version: 1.0.0+1
+version: 2.0.0+1
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
@@ -61,7 +61,7 @@ dev_dependencies:
     sdk: flutter
 
 flutter_icons:
-  image_path: "assets/image/logo-client.png"
+  image_path: "assets/image/logo.png"
   android: true
   ios: true
 
