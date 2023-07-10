@@ -6,8 +6,8 @@ class AppConstants {
   static const double APP_VERSION = 6.1;
 
   // static const String BASE_URL = 'http://192.168.16.120:8001';
-  //static const String BASE_URL = 'http://192.168.88.239:8000';
-   static const String BASE_URL = 'http://192.168.88.226:8080';
+  static const String BASE_URL = 'http://192.168.88.239:8000';
+  //  static const String BASE_URL = 'http://192.168.88.226:8080';
    //static const String BASE_URL = 'http://146.88.236.63/~backsalade';
   //static const String BASE_URL = 'https://www.preprod.sosalad.com';
   static const String CATEGORY_URI = '/api/v1/categories';
@@ -17,7 +17,7 @@ class AppConstants {
   static const String RESTAURANT_PRODUCT_URI = '/api/v1/products/latest';
   static const String POPULAR_PRODUCT_URI = '/api/v1/products/popular';
   static const String REVIEWED_PRODUCT_URI = '/api/v1/products/most-reviewed';
-  static const String SEARCH_PRODUCT_URI = '/api/v1/products/details/';
+  static const String SEARCH_PRODUCT_URI = '/api/v1/products/details/'; 
   static const String SUB_CATEGORY_URI = '/api/v1/categories/childes/';
   static const String CATEGORY_PRODUCT_URI = '/api/v1/categories/products/';
   static const String CATEGORY_RESTAURANT_URI = '/api/v1/categories/restaurants/';

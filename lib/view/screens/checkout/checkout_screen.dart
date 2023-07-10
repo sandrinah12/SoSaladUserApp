@@ -686,7 +686,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                   icon: Images.digital_payment,
                                   title: 'Mobile money',
                                   subtitle: 'faster_and_safe_way'.tr,
-                                  index: 10,
+                                  index: 4,
                                   action: () {
                                     method_payment_id = 'cinetpay';
                                     print(method_payment_id);
@@ -696,7 +696,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                   icon: Images.paypal,
                                   title: 'Paypal',
                                   subtitle: 'faster_and_safe_way'.tr,
-                                  index: 20,
+                                  index: 2,
                                   action: () {
                                     method_payment_id = 'paypal';
                                     print(method_payment_id);
@@ -706,7 +706,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                   icon: Images.stripe,
                                   title: 'Stripe',
                                   subtitle: 'faster_and_safe_way'.tr,
-                                  index: 30,
+                                  index: 1,
                                   action: () {
                                     method_payment_id = 'stripe';
                                   },
@@ -715,7 +715,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                   icon: Images.wallet,
                                   title: 'wallet_payment'.tr,
                                   subtitle: 'pay_from_your_existing_balance'.tr,
-                                  index: 2,
+                                  index: 5,
                                 ) : SizedBox(),
                                /* PaymentButton(
                                   icon: Images.wallet,
@@ -957,7 +957,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
          String hostname = html.window.location.hostname;
          String protocol = html.window.location.protocol;
          String selectedUrl = '${AppConstants.BASE_URL}/payment-mobile?order_id=$orderID&customer_id=${Get.find<UserController>()
-             .userInfoModel.id}&&callback=$protocol//$hostname${RouteHelper.orderSuccess}?id=$orderID&amount=$amount&status=';
+             .userInfoModel.id}&method_payment_id=$method_payment_id&&callback=$protocol//$hostname${RouteHelper.orderSuccess}?id=$orderID&amount=$amount&status=';
          html.window.open(selectedUrl,"_self");
        } else{
          Get.offNamed(RouteHelper.getPaymentRoute(orderID, Get.find<UserController>().userInfoModel.id, amount, maximumCodOrderAmount, method_payment_id));
