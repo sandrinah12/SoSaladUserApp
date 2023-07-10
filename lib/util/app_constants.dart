@@ -7,8 +7,13 @@ class AppConstants {
 
   // static const String BASE_URL = 'http://192.168.16.120:8001';
   static const String BASE_URL = 'http://192.168.88.239:8000';
+<<<<<<< Updated upstream
   //  static const String BASE_URL = 'http://192.168.88.226:8080';
    //static const String BASE_URL = 'http://146.88.236.63/~backsalade';
+=======
+   //static const String BASE_URL = 'http://192.168.88.226:8080';
+   // static const String BASE_URL = 'http://146.88.236.63/~backsalade';
+>>>>>>> Stashed changes
   //static const String BASE_URL = 'https://www.preprod.sosalad.com';
   static const String CATEGORY_URI = '/api/v1/categories';
   static const String BANNER_URI = '/api/v1/banners';
