@@ -957,8 +957,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
          String hostname = html.window.location.hostname;
          String protocol = html.window.location.protocol;
          String selectedUrl = '${AppConstants.BASE_URL}/payment-mobile?order_id=$orderID&customer_id=${Get.find<UserController>()
-             .userInfoModel.id}&&callback=$protocol//$hostname${RouteHelper.orderSuccess}?id=$orderID'
-             '&method_payment_id=${method_payment_id}&amount=$amount&status=';
+             .userInfoModel.id}&method_payment_id=$method_payment_id&&callback=$protocol//$hostname${RouteHelper.orderSuccess}?id=$orderID&amount=$amount&status=';
          html.window.open(selectedUrl,"_self");
        } else{
          Get.offNamed(RouteHelper.getPaymentRoute(orderID, Get.find<UserController>().userInfoModel.id, amount, maximumCodOrderAmount, method_payment_id));
